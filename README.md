@@ -39,6 +39,10 @@ I was ricing FreeBSD one day while noticing that I'm missing a text editor. I ca
 - Clone this respiratory
 - Run main.py. If it's your first time running, it'll generate a config file
 ### Configuration
+The config file resides in your home direction regardless of OS. It's 'C:/Users/your_username' on Windows and ~/.config/ on most Linux distros, Unix and BSD OS. The file's name is "mcfg". Open it with a text editor (like this one).
+TBA
+
+## User's guide
 TBA
 
 ## Help/support me
