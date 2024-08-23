@@ -15,13 +15,16 @@ I was ricing FreeBSD one day while noticing that I'm missing a text editor. I ca
 - Config file
 - Transparency
 - Save/save as/load/create new
+- Background color
+- Find
 
 ### Missing/to be added
 - per-line counter (I can't get this to work)
 - syntax highlighting
 - underscore and other text highlighting. I won't add these to keep the program simple
-- find and replace (top priority)
+- replace (top priority)
 - keyboardless selecting. My intention is to hold Alt and use arrow keys to move the cursor to select.
+- colored text (in general)
 - many more
 
 ## Advantages over nano
