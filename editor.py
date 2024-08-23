@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import font, filedialog, messagebox, scrolledtext
+import sys
 
 class TextEditor:
     def __init__(self, root, config):
@@ -127,6 +128,20 @@ class TextEditor:
         else:
             self.root.config(menu=self.menu_bar)
             self.menu_visible = True
+    
+    def find(self, *args):
+        self.text.tag_remove('found', '1.0', tk.END)
+        target = tk.simpledialog.askstring('Find', 'Search String:')
+        if target:
+            idx = '1.0'
+            while 1:
+                idx = self.text.search(target, idx, nocase=1, stopindex=tk.END)
+                if not idx: break
+                lastidx = '%s+%dc' % (idx, len(target))
+                self.text.tag_add('found', idx, lastidx)
+                idx = lastidx
+            self.text.tag_config('found', foreground='white',    background='blue')
+
 
     def bind_shortcuts(self):
         self.root.bind('<Control-n>', lambda event: self.new_file())
@@ -139,4 +154,5 @@ class TextEditor:
         self.root.bind('<Control-b>', lambda event: self.toggle_bold())
         self.root.bind('<Control-u>', lambda event: self.toggle_underscore())
         self.root.bind('<Control-Shift-Q>', lambda event: self.toggle_menu_bar())
+        self.root.bind('<Control-f>', lambda event: self.find())
 

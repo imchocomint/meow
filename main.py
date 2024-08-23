@@ -17,7 +17,7 @@ def load_config():
     if not os.path.exists(config_path):
         config['DEFAULT'] = {
             'first': '1',
-            'color': 'black',
+            'color': '#000000',
             'font': 'Arial',
             'size': '14',
             'tspvalue': '0.5'
@@ -29,12 +29,15 @@ def load_config():
     
     return config
 
+
 if __name__ == "__main__":
     root = tk.Tk()
     config = load_config()
 
     # Apply appearance settings from config
-    root.configure(bg=config['DEFAULT']['color'])
+    #print(f"Background color from config: {config['DEFAULT']['color']}")
+    #root.config(bg=config['DEFAULT']['color'])
+    #root.config(bg='#ff0000')
     root.attributes('-alpha', float(config['DEFAULT']['tspvalue']))
     
     editor = TextEditor(root, config)
